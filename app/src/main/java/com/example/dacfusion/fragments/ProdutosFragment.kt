@@ -67,7 +67,7 @@ class ProdutosFragment : Fragment() {
         val call = service.getProdutos()
         val callback = object: Callback<List<Produtos>> {
             override fun onFailure(call: Call<List<Produtos>>, t: Throwable) {
-//                Toast.makeText(this@ProdutosFragment, "Api não funcionando" , Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Api não funcionando" , Toast.LENGTH_LONG).show()
                 Log.e("Produtos" , "getProdutos" , t)
             }
 
@@ -76,7 +76,7 @@ class ProdutosFragment : Fragment() {
                     val produtos = response.body()
                     refreshUi(produtos)
                 }else{
-//                Toast.makeText(this@ProdutosFragment , "Erro em Atualizar Produto" , Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Erro em Atualizar Produto" , Toast.LENGTH_LONG).show()
                     Log.e(response.code().toString(), response.errorBody().toString())
 
                 }
